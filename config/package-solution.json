@@ -3,7 +3,7 @@
   "solution": {
     "name": "Calendar-configurable",
     "id": "f5594511-19d7-4906-a6a4-da6d09adebac",
-    "version": "6.0.0.0",
+    "version": "7.0.0.0",
     "includeClientSideAssets": true
   },
   "paths": {

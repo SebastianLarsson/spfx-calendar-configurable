@@ -117,19 +117,27 @@ export default class SpfxReactFullcalendar extends React.Component<ISpfxReactFul
       weekNumbers:true,
       defaultView:this.props.defaultView,
       firstDay:1,
+      height:'auto',
+      contentHeight:'auto',
+      nowIndicator:true,
       views: {
         agenda: {
           columnHeaderFormat:'ddd D/M',
         },
         week: {
           columnHeaderFormat:'ddd D/M',
+          minTime:'07:00:00',
+          maxTime:'20:00:00',
           scrollTime: '07:00:00',
         },
         month: {
-          eventLimit: 7
+          eventLimit: 7,
+          fixedWeekCount:false
         },
         day: {
           scrollTime: '07:00:00',
+          minTime:'07:00:00',
+          maxTime:'24:00:00',
         }
         },
         businessHours: {
@@ -162,7 +170,7 @@ export default class SpfxReactFullcalendar extends React.Component<ISpfxReactFul
           trigger: 'hover',
           html:true,
           placement: 'bottom',
-          container: 'body'
+          boundary:'window'
         });
       },
       // put the events on the calendar 
