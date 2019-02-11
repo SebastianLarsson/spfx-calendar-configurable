@@ -12,6 +12,7 @@ declare interface ISpfxReactFullcalendarWebPartStrings {
   eventColorLabel:string;
   siteNameLabel:string;
   filterQueryLabel:string;
+  orderQueryLabel:string;
   defaultWeekendLabel:string;
 }
 

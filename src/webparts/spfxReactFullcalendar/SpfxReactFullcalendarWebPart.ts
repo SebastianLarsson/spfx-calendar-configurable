@@ -5,7 +5,6 @@ import {
   BaseClientSideWebPart,
   IPropertyPaneConfiguration,
   PropertyPaneTextField,
-  PropertyPaneState,
   PropertyPaneCheckbox
 } from '@microsoft/sp-webpart-base';
 
@@ -28,6 +27,7 @@ export interface ISpfxReactFullcalendarWebPartProps {
   eventColor:string;
   siteUrl:string;
   filterQuery:string;
+  orderQuery:string;
 }
 
 export default class SpfxReactFullcalendarWebPart extends BaseClientSideWebPart<ISpfxReactFullcalendarWebPartProps> {
@@ -39,6 +39,7 @@ export default class SpfxReactFullcalendarWebPart extends BaseClientSideWebPart<
         spHttpClient: this.context.spHttpClient,
         siteUrl: this.properties.siteUrl,
         filterQuery: this.properties.filterQuery,
+        orderQuery: this.properties.orderQuery,
         //siteName: this.context.pageContext.site.serverRelativeUrl,
         listName: this.properties.listName,
         showPanel: false,
@@ -114,6 +115,10 @@ export default class SpfxReactFullcalendarWebPart extends BaseClientSideWebPart<
                 ,
                 PropertyPaneTextField('filterQuery', {
                   label: strings.filterQueryLabel
+                }),
+                ,
+                PropertyPaneTextField('orderQuery', {
+                  label: strings.orderQueryLabel
                 })
               ]
             }

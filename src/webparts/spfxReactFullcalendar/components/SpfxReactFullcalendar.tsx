@@ -67,6 +67,8 @@ export default class SpfxReactFullcalendar extends React.Component<ISpfxReactFul
           <Label>{this.state.optionalColumn}</Label>
           <br></br><br></br>
           <a href={this.props.siteUrl + "/Lists/" + this.props.listName + "/DispForm.aspx?ID=" + this.state.eventID} target='_blank'>Open this event in a form to view or edit</a>
+          <a href={this.props.siteUrl + "/Lists/" + this.props.listName + "/AllItems.aspx?&useFiltersInViewXml=1&FilterField1=ID&FilterValue1=" + this.state.eventID + "&FilterType1=Counter&FilterOp1=In"} target='_blank'>Open this event filtered in the list</a>
+
           <br></br><br></br>
           <Label>To delete an event, you have to do that in the list. Click 'Open event list'</Label>
         </Panel>
@@ -180,7 +182,7 @@ export default class SpfxReactFullcalendar extends React.Component<ISpfxReactFul
         let endDate: string = end.format('YYYY-MM-DD');
         endDate += 'T00:00:00.0000000Z';
         
-        const restQuery: string = `/_api/Web/Lists/GetByTitle('${escape(this.props.listName)}')/items?$select=ID,${escape(this.props.titleEvent)},${escape(this.props.startDate)},${escape(this.props.endDate)},${escape(this.props.descriptionColumn)},${escape(this.props.optionalColumn)},${escape(this.props.eventColor)}&$orderby=Id desc&$top=1000&$filter=${this.props.filterQuery}`;
+        const restQuery: string = `/_api/Web/Lists/GetByTitle('${escape(this.props.listName)}')/items?$select=ID,${escape(this.props.titleEvent)},${escape(this.props.startDate)},${escape(this.props.endDate)},${escape(this.props.descriptionColumn)},${escape(this.props.optionalColumn)},${escape(this.props.eventColor)}&$orderby=${this.props.filterQuery}&$top=1000&$filter=${this.props.filterQuery}`;
         console.log(restQuery);
         this.props.spHttpClient.get(this.props.siteUrl + restQuery, SPHttpClient.configurations.v1, {
           headers: {

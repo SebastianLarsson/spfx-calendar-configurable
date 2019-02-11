@@ -20,7 +20,8 @@
     "properties": {
       "description": "Calendar-configurable",
       "defaultView":"month",
-      "defaultWeekend":true
+      "defaultWeekend":true,
+      "orderQuery":"id"
     }
   }]
 }

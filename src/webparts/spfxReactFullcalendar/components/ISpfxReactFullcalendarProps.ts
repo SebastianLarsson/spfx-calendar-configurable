@@ -16,4 +16,5 @@ export interface ISpfxReactFullcalendarProps {
   eventColor:string;
   eventID:string;
   filterQuery:string;
+  orderQuery:string;
 }
