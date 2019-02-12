@@ -182,7 +182,7 @@ export default class SpfxReactFullcalendar extends React.Component<ISpfxReactFul
         let endDate: string = end.format('YYYY-MM-DD');
         endDate += 'T00:00:00.0000000Z';
         
-        const restQuery: string = `/_api/Web/Lists/GetByTitle('${escape(this.props.listName)}')/items?$select=ID,${escape(this.props.titleEvent)},${escape(this.props.startDate)},${escape(this.props.endDate)},${escape(this.props.descriptionColumn)},${escape(this.props.optionalColumn)},${escape(this.props.eventColor)}&$orderby=${this.props.filterQuery}&$top=1000&$filter=${this.props.filterQuery}`;
+        const restQuery: string = `/_api/Web/Lists/GetByTitle('${escape(this.props.listName)}')/items?$select=ID,${escape(this.props.titleEvent)},${escape(this.props.startDate)},${escape(this.props.endDate)},${escape(this.props.descriptionColumn)},${escape(this.props.optionalColumn)},${escape(this.props.eventColor)}&$orderby=${this.props.orderQuery}&$top=1000&$filter=${this.props.filterQuery}`;
         console.log(restQuery);
         this.props.spHttpClient.get(this.props.siteUrl + restQuery, SPHttpClient.configurations.v1, {
           headers: {
